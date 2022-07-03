@@ -1,7 +1,6 @@
 import argparse
 import config
 import os
-import shutil
 import subprocess
 from jinja2 import Template
 
