@@ -13,16 +13,18 @@ with open('requirements.txt') as f:
 setup(
     name='linuxserver',
     version='0.0.1',
-    description='A CLI to deploy linuxserver home cinema applications',
+    description='A simple CLI to deploy linuxserver services',
     long_description=readme,
     long_description_content_type='text/markdown',
     author='Frank Oprel',
     author_email='fj.oprel@gmail.com',
-    url='https://github.com/jschra/grater_expectations',
+    url='https://github.com/foprel/linuxserver',
     install_requires=requirements,
     license=license,
     packages=['.'],
     include_package_data=True,
-    entry_points={'console_scripts': ['cinema = cli:main'],},
+    entry_points={
+        'console_scripts': ['cinema = cli:main'],
+    },
     python_requires='>=3.8',
 )
