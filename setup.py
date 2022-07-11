@@ -7,7 +7,6 @@ with open('README.md') as f:
 
 with open('LICENSE') as f:
     license = f.read()
-    print(license)
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
