@@ -1,8 +1,9 @@
+from jinja2 import Template
+from version import __version__
+from . import config
 import argparse
-import config
 import os
 import subprocess
-from jinja2 import Template
 
 
 SYSTEM = config.system
@@ -18,6 +19,12 @@ CONFIG = PATHS[SYSTEM]['docker']
 def main():
 
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '-v',
+        '--version',
+        action='version',
+        version=__version__
+    )
     subparsers = parser.add_subparsers()
 
     deploy = subparsers.add_parser('deploy')
@@ -47,7 +54,16 @@ def main():
         copy_docker_yml(service, docker_path)
 
         # Run docker
+        validate_docker_installation()
         run_docker_yml(service, docker_path)
+
+
+def validate_docker_installation():
+    try:
+        subprocess.call('docker version')
+    except Exception:
+        print('Please install Docker CLI')
+        quit()
 
 
 def create_directories(paths):
