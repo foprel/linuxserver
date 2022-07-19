@@ -11,7 +11,13 @@ paths = {
         'config': os.path.expanduser('~/.linuxserver'),
         'docker': os.path.expanduser('~/.linuxserver/docker'),
     },
-    'Linux': '',
+    'Linux': {
+        'downloads': os.path.expanduser('~/Downloads'),
+        'movies': os.path.expanduser('~/Videos/Movies'),
+        'series': os.path.expanduser('~/Videos/Series'),
+        'config': os.path.expanduser('~/.linuxserver'),
+        'docker': os.path.expanduser('~/.linuxserver/docker'),
+    },
     'MacOS': '',
 }
 
