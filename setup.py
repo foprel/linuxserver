@@ -1,5 +1,5 @@
 from version import __version__
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 with open('README.md') as f:
@@ -22,10 +22,14 @@ setup(
     url='https://github.com/foprel/linuxserver',
     install_requires=requirements,
     license=license,
-    packages=['src.cli'],
+    packages=[
+        '.',
+        'cli'
+    ],
+    package_dir={'cli': 'src/cli'},
     include_package_data=True,
     entry_points={
-        'console_scripts': ['linuxserver = src.cli.cli:main'],
+        'console_scripts': ['linuxserver = cli.cli:main'],
     },
     python_requires='>=3.8',
 )
