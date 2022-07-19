@@ -1,3 +1,5 @@
 include version.py
+exclude MANIFEST.in
+exclude README.md
 
 include src/cli/docker/*
