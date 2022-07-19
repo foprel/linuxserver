@@ -22,4 +22,3 @@ jobs:
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.pypi_password }}
-          TWINE_REPOSITORY: linuxserver
