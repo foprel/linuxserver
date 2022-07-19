@@ -75,7 +75,7 @@ def create_directories(paths):
 
 def copy_docker_yml(service, dst):
 
-    src = f'../docker/{service}-compose.yml'
+    src = f'./docker/{service}-compose.yml'
 
     with open(src, 'r') as source, open(dst, 'w+') as destination:
         template = Template(source.read())
