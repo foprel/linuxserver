@@ -9,6 +9,7 @@ import subprocess
 SYSTEM = config.system
 SERVICES = config.services.keys()
 PATHS = config.paths
+ROOT = os.path.dirname(__file__)
 DOWNLOADS = PATHS[SYSTEM]['downloads']
 MOVIES = PATHS[SYSTEM]['movies']
 SERIES = PATHS[SYSTEM]['series']
@@ -51,7 +52,7 @@ def main():
         )
 
         # Copy .yml files
-        copy_docker_yml(service, docker_path)
+        copy_docker_yml(service, ROOT, docker_path)
 
         # Run docker
         validate_docker_installation()
@@ -60,7 +61,7 @@ def main():
 
 def validate_docker_installation():
     try:
-        subprocess.call('docker version')
+        subprocess.call('docker version', shell=True)
     except Exception:
         print('Please install Docker CLI')
         quit()
@@ -73,9 +74,9 @@ def create_directories(paths):
             os.makedirs(path)
 
 
-def copy_docker_yml(service, dst):
+def copy_docker_yml(service, src, dst):
 
-    src = f'./docker/{service}-compose.yml'
+    src = f'{src}/docker/{service}-compose.yml'
 
     with open(src, 'r') as source, open(dst, 'w+') as destination:
         template = Template(source.read())
@@ -83,10 +84,9 @@ def copy_docker_yml(service, dst):
         destination.write(render)
 
 
-def run_docker_yml(service, path):
-
-    cmd = f'docker-compose -f {path} up -d'
-    subprocess.call(cmd)
+def run_docker_yml(service, dst):
+    cmd = f'docker-compose -f {dst} up -d'
+    subprocess.call(cmd, shell=True)
 
 
 if __name__ == '__main__':
