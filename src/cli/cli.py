@@ -91,6 +91,7 @@ def run_docker_yml(service, dst):
         f'WIREGUARD_ADDRESSES={os.environ.get("WIREGUARD_ADDRESSES")} '
         f'docker compose -f {dst} up -d'
     )
+    print(cmd)
     subprocess.call(cmd, shell=True)
 
 
