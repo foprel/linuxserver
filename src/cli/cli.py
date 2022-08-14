@@ -85,7 +85,7 @@ def copy_docker_yml(service, src, dst):
 
 
 def run_docker_yml(service, dst):
-    cmd = f'docker-compose -f {dst} up -d'
+    cmd = f'docker compose -f {dst} up -d'
     subprocess.call(cmd, shell=True)
 
 
