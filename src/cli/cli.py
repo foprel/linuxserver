@@ -85,7 +85,12 @@ def copy_docker_yml(service, src, dst):
 
 
 def run_docker_yml(service, dst):
-    cmd = f'docker compose -f {dst} up -d'
+    cmd = (
+        f'OPENVPN_USER={os.environ.get("OPENVPN_USER")} '
+        f'WIREGUARD_PRIVATE_KEY={os.environ.get("WIREGUARD_PRIVATE_KEY")} '
+        f'WIREGUARD_ADDRESSES={os.environ.get("WIREGUARD_ADDRESSES")} '
+        f'docker compose -f {dst} up -d'
+    )
     subprocess.call(cmd, shell=True)
 
 
