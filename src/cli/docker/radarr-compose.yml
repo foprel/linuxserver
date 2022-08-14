@@ -13,4 +13,5 @@ services:
       - {{ downloads }}:/downloads #optional
     ports:
       - 7878:7878
+    network_mode: container:gluetun
     restart: unless-stopped

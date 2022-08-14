@@ -14,4 +14,5 @@ services:
       - {{ downloads }}:/downloads
     ports:
       - 9117:9117
+    network_mode: container:gluetun
     restart: unless-stopped

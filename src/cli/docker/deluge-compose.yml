@@ -15,4 +15,5 @@ services:
       - 8112:8112
       - 6881:6881
       - 6881:6881/udp
+    network_mode: container:gluetun
     restart: unless-stopped
