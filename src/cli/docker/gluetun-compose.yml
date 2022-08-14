@@ -16,13 +16,12 @@ services:
       - {{ config }}:/gluetun
     environment:
       # See https://github.com/qdm12/gluetun/wiki
-      - VPN_SERVICE_PROVIDER=ivpn
-      - VPN_TYPE=openvpn
+      - VPN_SERVICE_PROVIDER=mullvad
+      - VPN_TYPE=wireguard
       # OpenVPN:
-      - OPENVPN_USER=
-      - OPENVPN_PASSWORD=
+      - OPENVPN_USER={{ openvpn_user }}
       # Wireguard:
-      # - WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU=
-      # - WIREGUARD_ADDRESSES=10.64.222.21/32
+      - WIREGUARD_PRIVATE_KEY={{ wireguard_private_key }}
+      - WIREGUARD_ADDRESSES={{ wireguard_addresses }}
       # Timezone for accurate log times
       - TZ=
