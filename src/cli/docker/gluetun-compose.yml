@@ -25,9 +25,9 @@ services:
       - VPN_SERVICE_PROVIDER=mullvad
       - VPN_TYPE=wireguard
       # OpenVPN:
-      - OPENVPN_USER="${OPENVPN_USER}"
+      - OPENVPN_USER=${OPENVPN_USER}
       # Wireguard:
-      - WIREGUARD_PRIVATE_KEY="${WIREGUARD_PRIVATE_KEY}"
-      - WIREGUARD_ADDRESSES="${WIREGUARD_ADDRESSES}"
+      - WIREGUARD_PRIVATE_KEY=${WIREGUARD_PRIVATE_KEY}
+      - WIREGUARD_ADDRESSES=${WIREGUARD_ADDRESSES}
       # Timezone for accurate log times
       - TZ=
