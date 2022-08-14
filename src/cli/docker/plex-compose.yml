@@ -13,5 +13,4 @@ services:
       - {{ config }}:/config
       - {{ series }}:/tv
       - {{ movies }}:/movies
-    network_mode: container:gluetun
     restart: unless-stopped
