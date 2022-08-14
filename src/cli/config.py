@@ -39,9 +39,9 @@ services = {
         'paths': {
             'docker': os.path.join(paths[system]['docker'], 'gluetun'),
             'config': os.path.join(paths[system]['config'], 'gluetun'),
-            'openvpn_user': os.getenv['OPENVPN_USER'],
-            'wireguard_private_key': os.getenv['WIREGUARD_PRIVATE_KEY'],
-            'wireguard_addresses': os.getenv['WIREGUARD_ADDRESSES'],
+            'openvpn_user': os.getenv('OPENVPN_USER'),
+            'wireguard_private_key': os.getenv('WIREGUARD_PRIVATE_KEY'),
+            'wireguard_addresses': os.getenv('WIREGUARD_ADDRESSES'),
         }
     },
     'jackett': {
