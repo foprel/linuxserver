@@ -11,7 +11,5 @@ services:
       - {{ config }}:/config
       - {{ series }}:/tv #optional
       - {{ downloads }}:/downloads #optional
-    ports:
-      - 8989:8989
     network_mode: container:gluetun
     restart: unless-stopped
