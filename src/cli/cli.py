@@ -10,11 +10,6 @@ SYSTEM = config.system
 SERVICES = config.services.keys()
 PATHS = config.paths
 ROOT = os.path.dirname(__file__)
-DOWNLOADS = PATHS[SYSTEM]['downloads']
-MOVIES = PATHS[SYSTEM]['movies']
-SERIES = PATHS[SYSTEM]['series']
-DOCKER = PATHS[SYSTEM]['docker']
-CONFIG = PATHS[SYSTEM]['docker']
 
 
 def main():
@@ -30,11 +25,6 @@ def main():
 
     deploy = subparsers.add_parser('deploy')
     deploy.add_argument('services', nargs='+', choices=SERVICES)
-    deploy.add_argument('--downloads-path', type=str, default=DOWNLOADS)
-    deploy.add_argument('--movies-path', type=str, default=MOVIES)
-    deploy.add_argument('--series-path', type=str, default=SERIES)
-    deploy.add_argument('--docker-path', type=str, default=DOCKER)
-    deploy.add_argument('--config-path', type=str, default=CONFIG)
 
     args = parser.parse_args()
 
@@ -85,14 +75,24 @@ def copy_docker_yml(service, src, dst):
 
 
 def run_docker_yml(service, dst):
-    cmd = (
+
+    vars = (
         f'OPENVPN_USER={os.environ.get("OPENVPN_USER")} '
         f'WIREGUARD_PRIVATE_KEY={os.environ.get("WIREGUARD_PRIVATE_KEY")} '
         f'WIREGUARD_ADDRESSES={os.environ.get("WIREGUARD_ADDRESSES")} '
+    )
+
+    cmps = (
         f'docker compose -f {dst} up -d'
     )
-    print(cmd)
-    subprocess.call(cmd, shell=True)
+
+    if service == 'gluetun':
+        cmds = vars + cmps
+    else:
+        cmds = cmps
+        
+    print(cmds)
+    subprocess.call(cmds, shell=True)
 
 
 if __name__ == '__main__':
