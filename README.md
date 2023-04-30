@@ -1,7 +1,7 @@
 # linuxserver
 
 ## About
-linuxserver is a simple command-line interface that enables you to easily install a complete home media server onto your machine. It uses open-source images from linuxserver.io and deploys them to Docker. The following services are supported:
+linuxserver is a simple command-line interface that enables you to easily install a complete home media server onto your machine. It uses open-source images from [linuxserver.io](https://www.linuxserver.io/) and deploys them to Docker. The following services are supported:
 
 - [Deluge](https://deluge-torrent.org/)
 - [Gluetun](https://github.com/qdm12/gluetun)
@@ -9,6 +9,7 @@ linuxserver is a simple command-line interface that enables you to easily instal
 - [Plex](https://www.plex.tv/)
 - [Radarr](https://radarr.video/)
 - [Sonarr](https://sonarr.video/)
+- [Heimdall](https://heimdall.site/)
 
 ## Requirements
 - Python
@@ -29,5 +30,9 @@ linuxserver -v
 
 ## Usage
 Please follow these steps to use Linux Server CLI
+
+```shell
+linuxserver deploy gluetun deluge heimdall jackett sonarr radarr plex
+```
 
 
