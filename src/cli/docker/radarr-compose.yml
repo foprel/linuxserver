@@ -12,4 +12,4 @@ services:
       - {{ movies }}:/movies #optional
       - {{ downloads }}:/downloads #optional
     network_mode: container:gluetun
-    restart: unless-stopped
+    restart: always
