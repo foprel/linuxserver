@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   deluge:
-    image: lscr.io/linuxserver/deluge:latest
+    image: linuxserver/deluge:latest
     container_name: deluge
     environment:
       - PUID=1000
