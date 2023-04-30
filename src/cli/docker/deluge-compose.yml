@@ -12,4 +12,4 @@ services:
       - {{ config }}:/config
       - {{ downloads }}:/downloads
     network_mode: container:gluetun
-    restart: unless-stopped
+    restart: always

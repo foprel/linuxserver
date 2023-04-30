@@ -13,7 +13,7 @@ paths = {
     },
     'Linux': {
         'downloads': os.path.expanduser('~/Downloads'),
-        'movies': os.path.expanduser('~/Movies/Movies'),
+        'movies': os.path.expanduser('~/Videos/Movies'),
         'series': os.path.expanduser('~/Videos/Series'),
         'config': os.path.expanduser('~/.linuxserver'),
         'docker': os.path.expanduser('~/.linuxserver/docker'),
@@ -22,8 +22,8 @@ paths = {
         'downloads': os.path.expanduser('~/Downloads'),
         'movies': os.path.expanduser('~/Movies/Movies'),
         'series': os.path.expanduser('~/Movies/Series'),
-        'config': os.path.expanduser('~/linuxserver'),
-        'docker': os.path.expanduser('~/linuxserver/docker'),
+        'config': os.path.expanduser('~/.linuxserver'),
+        'docker': os.path.expanduser('~/.linuxserver/docker'),
     },
 }
 
@@ -72,6 +72,12 @@ services = {
             'series': paths[system]['series'],
             'docker': os.path.join(paths[system]['docker'], 'sonarr'),
             'config': os.path.join(paths[system]['config'], 'sonarr'),
+        },
+    },
+    'heimdall': {
+        'paths': {
+            'docker': os.path.join(paths[system]['docker'], 'heimdall'),
+            'config': os.path.join(paths[system]['config'], 'heimdall'),
         },
     },
 }
